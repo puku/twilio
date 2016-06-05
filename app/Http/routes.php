@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'TwilioController@index'
+]);
+
+
+Route::get('phone-number', [
+    'as' => 'phone-number',
+    'uses' => 'TwilioController@phoneNumber'
+]);
+
+Route::post('incoming', [
+    'as' => 'incoming',
+    'uses' => 'TwilioController@incoming'
+]);
